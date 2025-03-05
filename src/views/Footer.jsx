@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className="text-center w-full flex py-4 bg-blue-800 shadow">
+    <div className="text-center py-5 text-violet-100  bg-violet-700 shadow">
       <p>Copyright 2025</p>
     </div>
   )

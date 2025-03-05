@@ -10,6 +10,10 @@ import Navbar from './views/Navbar'
 import Footer from './views/Footer.jsx'
 import Todo from './views/Todo.jsx'
 import Message from './views/Message.jsx'
+import MessagesHistory from './views/MessagesHistory.jsx'
+import Search from './views/Search.jsx'
+import Profile from './views/Profile.jsx'
+import UserProfilePage from './views/UserProfilePage.jsx'
 
 
 
@@ -21,18 +25,24 @@ function App() {
         <AuthProvider>
           <Navbar />
           <Routes>
-            
             <Route element={<Login/>} path="/login" exact/>
             <Route element={<Register/>} path="/register" exact/>
             <Route element={<Homepage/>} path="/" exact/>
-            <Route path="/dashboard" element={<PrivateRoute />}>
-                <Route index element={<Dashboard />} />
+            <Route element={<UserProfilePage/>} path="/user/:id" exact/>
+            <Route path="/profile" element={<PrivateRoute />}>
+                <Route index element={<Profile />} />
             </Route>
             <Route path="/todo" element={<PrivateRoute />}>
                 <Route index element={<Todo />} />
             </Route>
             <Route path="/inbox" element={<PrivateRoute />}>
                 <Route index element={<Message />} />
+            </Route>
+            <Route path="/inbox/:id" element={<PrivateRoute />}>
+                <Route index element={<MessagesHistory />} />
+            </Route>
+            <Route path="/search/:username" element={<PrivateRoute />}>
+                <Route index element={<Search />} />
             </Route>
           </Routes>
           <Footer />
