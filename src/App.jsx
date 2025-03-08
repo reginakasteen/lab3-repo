@@ -29,20 +29,12 @@ function App() {
             <Route element={<Register/>} path="/register" exact/>
             <Route element={<Homepage/>} path="/" exact/>
             <Route element={<UserProfilePage/>} path="/user/:id" exact/>
-            <Route path="/profile" element={<PrivateRoute />}>
-                <Route index element={<Profile />} />
-            </Route>
-            <Route path="/todo" element={<PrivateRoute />}>
-                <Route index element={<Todo />} />
-            </Route>
-            <Route path="/inbox" element={<PrivateRoute />}>
-                <Route index element={<Message />} />
-            </Route>
-            <Route path="/inbox/:id" element={<PrivateRoute />}>
-                <Route index element={<MessagesHistory />} />
-            </Route>
-            <Route path="/search/:username" element={<PrivateRoute />}>
-                <Route index element={<Search />} />
+            <Route element={<PrivateRoute />}>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/todo" element={<Todo />} />
+                <Route path="/inbox" element={<Message />} />
+                <Route path="/inbox/:id" element={<MessagesHistory />} />
+                <Route path="/search/:username" element={<Search />} />
             </Route>
           </Routes>
           <Footer />

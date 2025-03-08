@@ -46,10 +46,10 @@ function MessagesHistory() {
           .catch((error) => {
               console.log("Error fetching interlocutor profile:", error);
           });
+          console.log(interlocutor);
+          
   }, []);
   
-  console.log(interlocutor);
-
 
     const handleMessageChange = (event) => {
       setNewMessage({
@@ -94,61 +94,65 @@ function MessagesHistory() {
                 <div className="col-12 sm:w-full lg:w-full p-4 sm:p-2">
                   <div className="col-12 xl:w-full xl:px-6">
                     <div className=" border-b-2 border-dashed border-gray-400 py-2 px-4">
-                      <div className="flex items-center py-1">
-                        <div className="relative">
-                          <img
-                            className="rounded-full mr-1"
-                            alt="Sharon Lessman"
-                            width={40}
-                            height={40}
-                          />
-                        </div>
-                        <div className="pl-3 flex-grow">
-                          <Link to={`/user/${id.id}/`}><strong>Sharon Lessman</strong></Link>
-                          
-                          <div className="text-sm text-muted">
-                            <em>Online</em>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          
+                    <div className="flex items-center py-1">
+                      <div className="relative">
+                        <img
+                          src={interlocutor.photo || '127.0.0.1:8000/media/default_image.jpg'}
+                          className="rounded-full mr-1"
+                          alt="User"
+                          width={40}
+                          height={40}
+                        />
+                        {interlocutor.is_online && (
+                          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                        )}
+                      </div>
+                      <div className="pl-3 flex-grow">
+                        <Link to={`/user/${id.id}/`}>{interlocutor?.name || "Unknown"}</Link>
+                        <div className="text-sm text-muted">
+                          <em>{interlocutor.is_online ? "Online" : "Offline"}</em>
                         </div>
                       </div>
+                      <div className="flex items-center space-x-2"></div>
                     </div>
 
-                    <div className=" p-4 space-y-4">
-                    {history.map((message, index) => (
-            <div
-              key={index}
-              className={`flex ${
-                message.sender === user_id ? "justify-end" : "justify-start"
-              }`}
-            >
-              {message.sender !== user_id && (
-                <img
-                  src={message.sender_profile.photo}
-                  className="rounded-full w-8 h-8 mr-2"
-                  alt="Sender"
-                />
-              )}
-              <div
-                className={`p-3 rounded-lg max-w-xs ${
-                  message.sender === user_id
-                    ? "bg-violet-400 text-white"
-                    : "bg-gray-200"
-                }`}
-              >
-                <div className="font-semibold">
-                  {message.sender === user_id ? "You" : message.sender_profile.name}
-                </div>
-                {message.message}
-                <div className="text-xs text-gray-500 text-right mt-1">
-                  {moment.utc(message.date).local().fromNow()}
-                </div>
-              </div>
-            </div>
-          ))}
                     </div>
+                    <div className="p-4 space-y-4">
+                      {history.length === 0 ? (
+                        <h1 className="text-center text-gray-500 text-xl py-5">No messages yet</h1>
+                      ) : (
+                        history.map((message, index) => (
+                          <div
+                            key={index}
+                            className={`flex ${
+                              message.sender === user_id ? "justify-end" : "justify-start"
+                            }`}
+                          >
+                            {message.sender !== user_id && (
+                              <img
+                                src={message.sender_profile.photo}
+                                className="rounded-full w-8 h-8 mr-2"
+                                alt="Sender"
+                              />
+                            )}
+                            <div
+                              className={`p-3 rounded-lg max-w-xs ${
+                                message.sender === user_id ? "bg-violet-400 text-white" : "bg-gray-200"
+                              }`}
+                            >
+                              <div className="font-semibold">
+                                {message.sender === user_id ? "You" : message.sender_profile.name}
+                              </div>
+                              {message.message}
+                              <div className="text-xs text-gray-500 text-right mt-1">
+                                {moment.utc(message.date).local().fromNow()}
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+
 
                     <div className="py-3 px-4 border-t-2 border-dashed border-gray-400 flex items-center">
                       <input

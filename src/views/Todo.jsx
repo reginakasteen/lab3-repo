@@ -45,7 +45,7 @@ function Todo() {
                     icon: "success",
                     toast: true,
                     timer: 2000,
-                    position: "top-right",
+                    position: "top",
                     timerProgressBar: true,
                 });
                 fetchTodo();
@@ -63,7 +63,7 @@ function Todo() {
             icon: "success",
             toast: true,
             timer: 2000,
-            position: "top-right",
+            position: "top",
             timerProgressBar: true,
         });
         fetchTodo();
@@ -76,7 +76,7 @@ function Todo() {
             icon: "success",
             toast: true,
             timer: 2000,
-            position: "top-right",
+            position: "top",
             timerProgressBar: true,
         });
         fetchTodo();
@@ -84,9 +84,9 @@ function Todo() {
 
     return (
         <div className="h-screen flex items-center justify-center bg-emerald-100">
-            <div className="container p-6 bg-white shadow-lg rounded-lg border-violet-700 w-full md:w-1/2 lg:w-1/2">
+            <div className="container p-6 bg-white shadow-lg rounded-lg border-violet-700 w-full sm:p-5 sm:w-2/3 md:w-1/2 lg:w-1/2">
                 <div className="bg-primary text-violet-700 p-4 rounded-t-lg">
-                    <h4 className="text-xl font-semibold">My Todo App</h4>
+                    <h4 className="text-xl font-semibold">Your Todo List</h4>
                 </div>
                 <div className="flex justify-between items-center p-4">
                     <input

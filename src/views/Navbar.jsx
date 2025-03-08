@@ -20,17 +20,14 @@ function Navbar() {
   return (
     <nav className="bg-violet-700 shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
-        {/* Логотип */}
         <Link to="/" className="text-violet-100 font-bold text-lg">
           About App
         </Link>
 
-        {/* Бургер-меню (мобильная версия) */}
         <button onClick={toggleMenu} className="md:hidden text-violet-100">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Навигация */}
         <ul className={`md:flex md:space-x-4 absolute md:static top-16 left-0 w-full sm:py-3 md:w-auto bg-violet-700 md:bg-transparent transition-transform duration-300 ${isOpen ? 'py-5 translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
           {!token ? (
             <>

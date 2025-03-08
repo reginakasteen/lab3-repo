@@ -61,6 +61,21 @@ function Register() {
               required
             />
           </div>
+          <p className='p-2 text-gray-500'>
+          <strong>Your password must:</strong>
+          <ul>
+            <li>- not be similar to user data</li>
+            <li>- contain at least 8 characters</li>
+            <li>- contain at least 1 digit</li>
+            <li>- not be commonly used</li>
+            <li>- match the second password</li>
+          </ul>
+          
+          
+          
+          
+          
+          </p>
           <button
             type='submit'
             className='w-full py-2 bg-violet-700 text-white font-semibold rounded-md hover:bg-violet-800 transition duration-200'

@@ -42,6 +42,7 @@ const Profile = () => {
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
     formDataToSend.append('gender', formData.gender);
+    formDataToSend.append('bio', formData.bio);
     formDataToSend.append('date_of_birth', formData.date_of_birth);
 
     if (photoFile) {
@@ -121,6 +122,17 @@ const Profile = () => {
             </div>
 
             <div>
+              <label className="block text-gray-700">Bio:</label>
+              <input
+                type="text"
+                name="bio"
+                value={formData.bio || ''}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div>
               <label className="block text-gray-700">Date of Birth:</label>
               <input
                 type="date"
@@ -142,15 +154,15 @@ const Profile = () => {
         ) : (
           <div>
             <p className="mb-4 p-2 flex">
-              <strong className='my-auto sm:pr-3'>Photo:</strong>
               <img
-                src={`http://127.0.0.1:8000${userData.photo}`}
+                src={`http://127.0.0.1:8000${userData.photo}` || '../media/default_image.jpg'}
                 alt="Profile"
                 className="w-24 h-24 mx-auto border border-violet-700 object-cover rounded-full mt-2"
               />
             </p>
             <p className='p-2'><strong>Name:</strong> {userData.name}</p>
             <p className='p-2'><strong>Gender:</strong> {userData.gender}</p>
+            <p className='p-2'><strong>Bio:</strong> {userData.bio}</p>
             <p className='p-2'><strong>Date of Birth:</strong> {userData.date_of_birth}</p>
             
             <button
