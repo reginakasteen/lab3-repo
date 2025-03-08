@@ -36,7 +36,7 @@ function MessagesHistory() {
         return () => {
           clearInterval(interval);
         }
-    }, []);
+    }, [id.id]);
 
     useEffect(() => {
       axios.get(baseURL + `/profile/${id.id}/`)
@@ -48,7 +48,7 @@ function MessagesHistory() {
           });
           console.log(interlocutor);
           
-  }, []);
+  }, [id.id]);
   
 
     const handleMessageChange = (event) => {
