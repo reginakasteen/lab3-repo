@@ -5,7 +5,7 @@ import {useContext} from 'react'
 
 import AuthContext from '../context/AuthContext'
 
-const baseURL = 'https://energetic-respect.up.railway.app/api';
+const baseURL = 'https://chat-back-production-139c.up.railway.app/api';
 
 const useAxios = () => {
     const {authTokens, setUser, setAuthTokens} = useContext(AuthContext);
