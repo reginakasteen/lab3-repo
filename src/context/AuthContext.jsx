@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
     }, [authTokens, navigate]);
 
     const loginUser = async (email, password) => {
-        const response = await fetch("http://127.0.0.1:8000/api/token/", {
+        const response = await fetch("https://energetic-respect.up.railway.app/api/token/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const registerUser = async (email, username, password, password2) => {
-        const response = await fetch("http://127.0.0.1:8000/api/register/", {
+        const response = await fetch("https://energetic-respect.up.railway.app/api/register/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }) => {
 
     const logoutUser = async () => {
         if (authTokens) {
-            await fetch("http://127.0.0.1:8000/api/set-offline/", {
+            await fetch("https://energetic-respect.up.railway.app/api/set-offline/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
