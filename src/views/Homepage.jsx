@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Homepage() {
   return (
     <div className='min-h-screen  flex-column items-center justify-center bg-emerald-100 p-4'>
-      <img src="http://127.0.0.1:8000/static/network.png" alt="Wifi image" className="w-1/2 m-auto sm:w-1/4 lg:w-1/3 xl:w-1/4"/>
+      <img src="https://energetic-respect.up.railway.app/network.png" alt="Wifi image" className="w-1/2 m-auto sm:w-1/4 lg:w-1/3 xl:w-1/4"/>
       <div className='max-w-2xl w-full m-auto bg-emerald-200 p-6 rounded-lg shadow-lg'>
         <main className='bg-emerald-300 p-6 rounded-lg'>
           <h1 className='text-center text-2xl font-bold p-3'>

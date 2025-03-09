@@ -97,7 +97,7 @@ function MessagesHistory() {
                     <div className="flex items-center py-1">
                       <div className="relative">
                         <img
-                          src={interlocutor.photo || '127.0.0.1:8000/media/default_image.jpg'}
+                          src={interlocutor.photo || 'https://energetic-respect.up.railway.app/media/default_image.jpg'}
                           className="rounded-full mr-1"
                           alt="User"
                           width={40}
