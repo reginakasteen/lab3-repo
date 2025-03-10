@@ -68,6 +68,7 @@ const Profile = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
+  console.log(userData.photo);
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-emerald-500 to-violet-500 py-8">
@@ -159,7 +160,7 @@ const Profile = () => {
           <div>
             <p className="mb-4 p-2 flex">
               <img
-                src={`https://chat-back-production-1153.up.railway.app/${userData.photo}` || '../media/default_image.jpg'}
+                src={`https://chat-back-production-1153.up.railway.app/${userData.photo || 'media/default_image.jpg'}`}
                 alt="Profile"
                 className="w-24 h-24 mx-auto border border-violet-700 object-cover rounded-full mt-2"
               />
