@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data);
             setUser(jwtDecode(data.access));
             localStorage.setItem("authTokens", JSON.stringify(data));
-            await fetch(baseURL + "/api/set-online/", {
+            await fetch(baseURL + "/set-online/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const registerUser = async (email, username, password, password2) => {
-        const response = await fetch(baseURL + "/api/register/", {
+        const response = await fetch(baseURL + "/register/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const AuthProvider = ({ children }) => {
 
     const logoutUser = async () => {
         if (authTokens) {
-            await fetch(baseURL + "/api/set-offline/", {
+            await fetch(baseURL + "/set-offline/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
