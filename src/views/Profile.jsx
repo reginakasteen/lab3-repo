@@ -112,14 +112,18 @@ const Profile = () => {
 
             <div>
               <label className="block text-gray-700">Gender:</label>
-              <input
-                type="text"
+              <select
                 name="gender"
                 value={formData.gender || ''}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
+              >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
             </div>
+
 
             <div>
               <label className="block text-gray-700">Bio:</label>
