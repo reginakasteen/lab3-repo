@@ -36,33 +36,3 @@ const useSearch = (initialQuery = "") => {
 };
 
 export default useSearch;
-
-
-
-
-
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// import useAxios, {baseURL} from '../utils/useAxios'
-
-
-// const useSearch = () => {
-//   const axios = useAxios();
-//   const navigate = useNavigate();
-
-//   const searchUser = async (username) => {
-//     if (!username) return;
-    
-//     try {
-//       await axios.get(axios.get(baseURL + '/search/' + username + '/'));
-//       navigate(`/search/${username}/`);  
-//     } catch (error) {
-//       console.log(error);
-//     } 
-//   };
-
-//   return { searchUser };
-// };
-
-// export default useSearch;

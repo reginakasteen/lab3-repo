@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+const baseURL = 'https://chat-back-production-1153.up.railway.app/api';
 const AuthContext = createContext();
 export default AuthContext;
 
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     }, [authTokens, navigate]);
 
     const loginUser = async (email, password) => {
-        const response = await fetch("https://energetic-respect.up.railway.app/api/token/", {
+        const response = await fetch(baseURL + "/token/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -61,7 +62,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data);
             setUser(jwtDecode(data.access));
             localStorage.setItem("authTokens", JSON.stringify(data));
-            await fetch("http://127.0.0.1:8000/api/set-online/", {
+            await fetch(baseURL + "/api/set-online/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -82,7 +83,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const registerUser = async (email, username, password, password2) => {
-        const response = await fetch("https://energetic-respect.up.railway.app/api/register/", {
+        const response = await fetch(baseURL + "/api/register/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -105,7 +106,7 @@ export const AuthProvider = ({ children }) => {
 
     const logoutUser = async () => {
         if (authTokens) {
-            await fetch("https://energetic-respect.up.railway.app/api/set-offline/", {
+            await fetch(baseURL + "/api/set-offline/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
