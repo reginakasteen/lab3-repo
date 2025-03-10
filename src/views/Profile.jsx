@@ -91,7 +91,7 @@ const Profile = () => {
                 <div className="mt-2">
                   <p className="text-gray-700">Current photo:</p>
                   <img
-                    src={`https://chat-back-production-1153.up.railway.app/${currentPhoto}`}
+                    src={`https://chat-back-production-1153.up.railway.app/media/${currentPhoto}`}
                     alt="Current Profile"
                     className="w-24 h-24 object-cover rounded-full"
                   />
