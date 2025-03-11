@@ -75,7 +75,7 @@ const Profile = () => {
 
   const dateOfBirth = userData.date_of_birth
     ? new Date(userData.date_of_birth).toLocaleDateString()
-    : 'Not provided';
+    : '';
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-emerald-500 to-violet-500 py-8">
