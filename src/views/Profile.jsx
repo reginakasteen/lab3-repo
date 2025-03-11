@@ -68,17 +68,22 @@ const Profile = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
-  console.log(userData.photo);
+
+  const photoUrl = userData.photo
+    ? `https://chat-back-production-1153.up.railway.app/static/${userData.photo}`
+    : 'https://chat-back-production-1153.up.railway.app/static/default_image.jpg';
+
+  const dateOfBirth = userData.date_of_birth
+    ? new Date(userData.date_of_birth).toLocaleDateString()
+    : 'Not provided';
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-emerald-500 to-violet-500 py-8">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Profile</h2>
 
-
         {editing ? (
           <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-6">
-
             <div className='flex flex-col'>
               <label className="block text-gray-700">Photo:</label>
               <input
@@ -98,7 +103,6 @@ const Profile = () => {
                 </div>
               )}
             </div>
-
 
             <div>
               <label className="block text-gray-700">Name:</label>
@@ -125,7 +129,6 @@ const Profile = () => {
               </select>
             </div>
 
-
             <div>
               <label className="block text-gray-700">Bio:</label>
               <input
@@ -148,7 +151,6 @@ const Profile = () => {
               />
             </div>
 
-
             <button
               type="submit"
               className="w-full py-2 bg-violet-700 text-white font-semibold rounded-md hover:bg-violet-800 transition duration-200"
@@ -160,7 +162,7 @@ const Profile = () => {
           <div>
             <p className="mb-4 p-2 flex">
               <img
-                  src={`https://chat-back-production-1153.up.railway.app${userData.photo ? '/static/default_image.jpg': '/static/' + userData.photo }`}
+                src={photoUrl}
                 alt="Profile"
                 className="w-24 h-24 mx-auto border border-violet-700 object-cover rounded-full mt-2"
               />
@@ -168,8 +170,8 @@ const Profile = () => {
             <p className='p-2'><strong>Name:</strong> {userData.name}</p>
             <p className='p-2'><strong>Gender:</strong> {userData.gender}</p>
             <p className='p-2'><strong>Bio:</strong> {userData.bio}</p>
-            <p className='p-2'><strong>Date of Birth:</strong> {userData.date_of_birth}</p>
-            
+            <p className='p-2'><strong>Date of Birth:</strong> {dateOfBirth}</p>
+
             <button
               onClick={() => setEditing(true)}
               className="w-full my-2 py-3 bg-violet-600 text-white font-semibold rounded-md hover:bg-violet-700 transition duration-200"
@@ -180,8 +182,7 @@ const Profile = () => {
         )}
       </div>
     </div>
-);
-
-  
+  );
 }
-export default Profile
+
+export default Profile;
