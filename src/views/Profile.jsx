@@ -68,14 +68,7 @@ const Profile = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
-
-  const photoUrl = userData.photo
-    ? `https://chat-back-production-1153.up.railway.app/static/${userData.photo}`
-    : 'https://chat-back-production-1153.up.railway.app/static/default_image.jpg';
-
-  const dateOfBirth = userData.date_of_birth
-    ? new Date(userData.date_of_birth).toLocaleDateString()
-    : '';
+  console.log(userData.photo);
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-emerald-500 to-violet-500 py-8">
@@ -110,6 +103,7 @@ const Profile = () => {
               </select>
             </div>
 
+
             <div>
               <label className="block text-gray-700">Bio:</label>
               <input
@@ -132,6 +126,7 @@ const Profile = () => {
               />
             </div>
 
+
             <button
               type="submit"
               className="w-full py-2 bg-violet-700 text-white font-semibold rounded-md hover:bg-violet-800 transition duration-200"
@@ -143,7 +138,7 @@ const Profile = () => {
           <div>
             <p className="mb-4 p-2 flex">
               <img
-                src={photoUrl}
+                  src={`https://chat-back-production-1153.up.railway.app${userData.photo ? '/static/default_image.jpg': '/static/' + userData.photo }`}
                 alt="Profile"
                 className="w-24 h-24 mx-auto border border-violet-700 object-cover rounded-full mt-2"
               />
@@ -151,8 +146,8 @@ const Profile = () => {
             <p className='p-2'><strong>Name:</strong> {userData.name}</p>
             <p className='p-2'><strong>Gender:</strong> {userData.gender}</p>
             <p className='p-2'><strong>Bio:</strong> {userData.bio}</p>
-            <p className='p-2'><strong>Date of Birth:</strong> {dateOfBirth}</p>
-
+            <p className='p-2'><strong>Date of Birth:</strong> {userData.date_of_birth}</p>
+            
             <button
               onClick={() => setEditing(true)}
               className="w-full my-2 py-3 bg-violet-600 text-white font-semibold rounded-md hover:bg-violet-700 transition duration-200"
@@ -163,7 +158,8 @@ const Profile = () => {
         )}
       </div>
     </div>
-  );
-}
+);
 
-export default Profile;
+  
+}
+export default Profile
