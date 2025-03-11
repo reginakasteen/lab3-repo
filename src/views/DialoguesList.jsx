@@ -39,13 +39,13 @@ function DialoguesList() {
                     <div className="flex items-center space-x-3">
                         {message.sender.id !== user_id ? (
                             <img
-                                src={message.receiver_profile.photo}
+                                src={'https://chat-back-production-1153.up.railway.app/static/default_image.jpg' || message.receiver_profile.photo}
                                 className="rounded-full w-10 h-10 object-cover"
                                 alt="image"
                             />
                         ) : (
                             <img
-                                src={message.sender_profile.photo}
+                                src={'https://chat-back-production-1153.up.railway.app/static/default_image.jpg' || message.sender_profile.photo}
                                 className="rounded-full w-10 h-10 object-cover"
                                 alt="image"
                             />

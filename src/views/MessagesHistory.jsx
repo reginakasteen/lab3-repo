@@ -130,7 +130,7 @@ function MessagesHistory() {
                           >
                             {message.sender !== user_id && (
                               <img
-                                src={message.sender_profile.photo}
+                                src={'https://chat-back-production-1153.up.railway.app/static/default_image.jpg' || message.sender_profile.photo}
                                 className="rounded-full w-8 h-8 mr-2"
                                 alt="Sender"
                               />
