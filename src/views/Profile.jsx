@@ -91,7 +91,7 @@ const Profile = () => {
                 <div className="mt-2">
                   <p className="text-gray-700">Current photo:</p>
                   <img
-                    src={`https://chat-back-production-1153.up.railway.app/media/${currentPhoto}`}
+                    src={`https://chat-back-production-1153.up.railway.app/static/${currentPhoto}`}
                     alt="Current Profile"
                     className="w-24 h-24 object-cover rounded-full"
                   />
@@ -160,7 +160,7 @@ const Profile = () => {
           <div>
             <p className="mb-4 p-2 flex">
               <img
-                  src={`https://chat-back-production-1153.up.railway.app${userData.photo ? '/media/' + userData.photo : '/media/default_image.jpg'}`}
+                  src={`https://chat-back-production-1153.up.railway.app${userData.photo ? '/static/' + userData.photo : '/static/default_image.jpg'}`}
                 alt="Profile"
                 className="w-24 h-24 mx-auto border border-violet-700 object-cover rounded-full mt-2"
               />
