@@ -84,25 +84,6 @@ const Profile = () => {
 
         {editing ? (
           <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-6">
-            <div className='flex flex-col'>
-              <label className="block text-gray-700">Photo:</label>
-              <input
-                type="file"
-                name="photo"
-                onChange={handleFileChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              {currentPhoto && !photoFile && (
-                <div className="mt-2">
-                  <p className="text-gray-700">Current photo:</p>
-                  <img
-                    src={`https://chat-back-production-1153.up.railway.app/static/${currentPhoto}`}
-                    alt="Current Profile"
-                    className="w-24 h-24 object-cover rounded-full"
-                  />
-                </div>
-              )}
-            </div>
 
             <div>
               <label className="block text-gray-700">Name:</label>
