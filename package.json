@@ -9,8 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test:watch": "jest --watch",
-    "test": "react-scripts test --watchAll=false",
-    "test:coverage": "react-scripts test --coverage --watchAll=false"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.6",
