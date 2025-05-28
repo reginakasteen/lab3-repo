@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { jwtDecode } from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import moment from 'moment'
 import { Link } from 'react-router-dom';
 
@@ -13,15 +13,16 @@ function DialoguesList() {
     const decoded = jwtDecode(token);
     const user_id = decoded.user_id;
 
-    useEffect(() => {
-        try {
-            axios.get(baseURL + '/my-messages/' + user_id + '/').then((res) => {
-                setMessages(res.data);
-            });
-        } catch (error) {
+   useEffect(() => {
+    axios.get(baseURL + '/my-messages/' + user_id + '/')
+        .then((res) => {
+            setMessages(res.data);
+        })
+        .catch((error) => {
             console.log(error);
-        }
-    }, [])
+        });
+}, []);
+
 
     return (
         <div className="w-full xl:w-full p-4 h-full bg-emerald-300 shadow rounded-lg">

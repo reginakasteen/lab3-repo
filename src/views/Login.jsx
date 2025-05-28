@@ -6,19 +6,22 @@ import AuthContext from '../context/AuthContext';
 function Login() {
   const { loginUser } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    email.length > 0 && loginUser(email, password);
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const email = formData.get('email');
+  const password = formData.get('password');
+  if (email && email.length > 0) {
+    loginUser(email, password);
+  }
+};
 
   return (
     <div className='min-h-screen flex items-center justify-center bg-gradient-to-r from-emerald-500 to-violet-500'>
       <div className='bg-white p-8 rounded-lg shadow-md max-w-sm w-full'>
         <h1 className='text-3xl font-semibold text-center text-gray-800 mb-4'>Welcome back</h1>
         <h3 className='text-lg text-center text-gray-600 mb-6'>Sign into your account</h3>
-        <form onSubmit={handleSubmit} className='space-y-4'>
+        <form onSubmit={handleSubmit} className='space-y-4' data-testid="login-form">
           <div>
             <label className='block text-sm font-medium text-gray-700' htmlFor='email'>
               Email

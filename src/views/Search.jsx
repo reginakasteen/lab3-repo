@@ -35,7 +35,14 @@ function Search() {
                                 key={user.user}>
                                     <div className="d-flex align-items-start">    
                                     <div className="flex items-center space-x-3">
-                                        <img src={'https://chat-back-production-1153.up.railway.app/static/default_image.jpg' || user.photo} className="rounded-full w-10 h-10 object-cover" style={{objectFit: "cover"}} alt="image" width={40} height={40}/>
+                                    <img 
+                                      src={user.photo || 'https://chat-back-production-1153.up.railway.app/static/default_image.jpg'} 
+                                      className="rounded-full w-10 h-10 object-cover" 
+                                      style={{objectFit: "cover"}} 
+                                      alt="image" 
+                                      width={40} 
+                                      height={40} 
+                                    />
                                         <div className="font-semibold text-sm">
                                           {user.name}
                                         </div>
