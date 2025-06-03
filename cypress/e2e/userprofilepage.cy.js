@@ -15,13 +15,11 @@ describe('User Profile Page', () => {
   };
 
   beforeEach(() => {
-    // intercept до visit!
     cy.intercept('GET', `${apiBase}/profile/${userId}/`, {
       statusCode: 200,
       body: mockProfileData,
     }).as('getProfile');
 
-    // Установка токена в localStorage через cy.window()
     cy.visit(`${frontendBase}/profile/${userId}`, {
       onBeforeLoad(win) {
         win.localStorage.setItem('authTokens', JSON.stringify({ access: token }));
