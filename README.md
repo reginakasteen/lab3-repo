@@ -2,14 +2,13 @@
 
 Костюченко А. В. КВ-41мп
 
-Розробка клієнтської частини Web-додатка
+Тестування клієнтської частини Web-додатка
 
 
-Мета: навчитись користуватись засобами фреймворка Javascript/ReactJS, платформи NodeJS, а також бібліотеки Twitter Bootstrap, Material UI або Tailwind щодо побудови Web-інтерфейсу користувача.
+Мета: навчитись користуватись засобами тестування Web-інтерфейсу користувача за допомогою фреймворка модульного тестування Javascript/Jest/React Testing Library, а також End-To-End (системного) тестування за допомогою фреймворку cypress.
+Загальне завдання: розробити засоби сценарії (код) для тестування клієнтської частини (інтерфейсу користувача) Web-додатку.
 
-Загальне завдання: розробити клієнтську частину Web-додатку.
-
-Звіт: https://docs.google.com/document/d/1T4ViE3Pj4Lir2Ph-T2u0T2gHSlnvZpeAldTwvUgfXNQ/edit?usp=sharing
+Звіт: [https://docs.google.com/document/d/1T4ViE3Pj4Lir2Ph-T2u0T2gHSlnvZpeAldTwvUgfXNQ/edit?usp=sharing](https://docs.google.com/document/d/1PkY5KBWPIeAS-VuZn8LNbu9iOEs5uPMlmEqc4M3MTGo/edit?usp=sharing)
 
 
 
