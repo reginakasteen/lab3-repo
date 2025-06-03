@@ -1,5 +1,3 @@
-// cypress/e2e/profile.cy.js
-
 const exp = Math.floor(Date.now() / 1000) + 3600;
 const fakeAccessToken = [
   btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' })),
@@ -21,21 +19,17 @@ describe('Profile Component Tests', () => {
   };
 
   beforeEach(() => {
-    // Кладём токен в localStorage, чтобы AuthProvider позволял заходить на /profile
     window.localStorage.setItem('authTokens', JSON.stringify({
       access: fakeAccessToken,
       refresh: fakeRefreshToken,
     }));
 
-    // Мокаем GET /api/profile/
     cy.intercept('GET', profileEndpoint, {
       statusCode: 200,
       body: mockUserData,
     }).as('getProfile');
 
-    // Мокаем PUT /api/profile/
     cy.intercept('PUT', profileEndpoint, (req) => {
-      // req.body будет мультипарт-строкой. Извлекаем поля через helper.
       const bodyString = req.body;
       req.reply({
         statusCode: 200,
@@ -100,7 +94,6 @@ describe('Profile Component Tests', () => {
 
   cy.get('form').submit();
 
-  // Ждём, что сервер обработал PUT
   cy.wait('@putProfile').then(({ request }) => {
     const bodyString = request.body;
     expect(bodyString).to.include(`name="name"`);
@@ -117,7 +110,6 @@ expect(bodyString).to.include(newData.date_of_birth);
 
   });
 
-  // Проверяем, что UI обновился и показывает новые данные (в режиме просмотра, не редактирования)
   cy.contains(`Name: ${newData.name}`).should('be.visible');
   cy.contains(`Gender: ${newData.gender}`).should('be.visible');
   cy.contains(`Bio: ${newData.bio}`).should('be.visible');
@@ -128,7 +120,6 @@ expect(bodyString).to.include(newData.date_of_birth);
   it('Processes file for profile photo', () => {
   cy.contains('Edit Profile').click();
   
-  // Дадим время и проверим видимость input
   cy.get('input[type="file"]', { timeout: 10000 })
     .should('exist')
     .should('be.visible')
@@ -154,8 +145,6 @@ expect(bodyString).to.include(newData.date_of_birth);
   });
 });
 
-// ---------- Вспомогательная функция ----------
-// Извлекает значение поля name="fieldName" из multipart-строки
 function extractMultipartField(multipartString, fieldName) {
   const marker = `name="${fieldName}"`;
   const idx = multipartString.indexOf(marker);
